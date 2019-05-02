@@ -446,17 +446,17 @@ contract("SupplyChain", function(accounts) {
     });
 
     //Retrieve balances of chain actors
-    let farmerBalance = web3.eth.getBalance(originFarmerID);
-    let transporterBalance = web3.eth.getBalance(transporterID);
-    let bottlingFarmBalance = web3.eth.getBalance(bottlingFarmID);
-    let distributorBalance = web3.eth.getBalance(distributorID);
-    let consumerBalance = web3.eth.getBalance(consumerID);
-    console.log("FarmerBalance before:", farmerBalance.toNumber());
+    let farmerBalanceP = web3.eth.getBalance(originFarmerID);
+    let transporterBalanceP = web3.eth.getBalance(transporterID);
+    let bottlingFarmBalanceP = web3.eth.getBalance(bottlingFarmID);
+    let distributorBalanceP = web3.eth.getBalance(distributorID);
+    let consumerBalanceP = web3.eth.getBalance(consumerID);
+/*    console.log("FarmerBalance before:", farmerBalance.toNumber());
     console.log("TransporterBalance before:", transporterBalance.toNumber());
     console.log("BottlingFarmBalance before:", bottlingFarmBalance.toNumber());
     console.log("DistributorBalance before:", distributorBalance.toNumber());
     console.log("ConsumerBalance before:", consumerBalance.toNumber());
-
+*/
     // Mark an item as Processed by calling function processtItem()
     await supplyChain.buy(upc, {
       from: consumerID,
@@ -473,11 +473,15 @@ contract("SupplyChain", function(accounts) {
     bottlingFarmBalance = web3.eth.getBalance(bottlingFarmID);
     distributorBalance = web3.eth.getBalance(distributorID);
     consumerBalance = web3.eth.getBalance(consumerID);
-    console.log("FarmerBalance after:", farmerBalance.toNumber());
-    console.log("TransporterBalance after:", transporterBalance.toNumber());
-    console.log("BottlingFarmBalance after:", bottlingFarmBalance.toNumber());
-    console.log("DistributorBalance after:", distributorBalance.toNumber());
-    console.log("ConsumerBalance after:", consumerBalance.toNumber());
+
+
+      console.log("Farmer earned:", farmerBalance.toNumber() - farmerBalanceP);
+      console.log("Transporter earned:", transporterBalance.toNumber()-transporterBalanceP);
+      console.log("BottlingFarm earned:", bottlingFarmBalance.toNumber()-bottlingFarmBalanceP);
+      console.log("Distributor earned:", distributorBalance.toNumber()-distributorBalanceP);
+      console.log("Consumer spent:", consumerBalance.toNumber()-consumerBalanceP);
+
+    
     // Verify the result set
     assert.equal(resultBufferTwo[5], 10, "Error: Invalid milk state");
     assert.equal(

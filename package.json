@@ -12,10 +12,11 @@
   "license": "MIT",
   "devDependencies": {
     "lite-server": "2.4.0",
-    "prettier-plugin-solidity": "^1.0.0-alpha.22"
+    "truffle": "^5.0.14",
+    "truffle-hdwallet-provider": "^1.0.8",
+    "truffle-privatekey-provider": "^1.1.0"
   },
   "dependencies": {
-    "truffle": "4",
-    "truffle-assertions": "^0.8.2"
+    "ganache-cli": "^6.4.3"
   }
 }

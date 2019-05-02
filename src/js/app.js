@@ -7,14 +7,16 @@ App = {
     metamaskAccountID: "0x0000000000000000000000000000000000000000",
     ownerID: "0x0000000000000000000000000000000000000000",
     originFarmerID: "0x0000000000000000000000000000000000000000",
-    originFarmName: null,
-    originFarmInformation: null,
-    originFarmLatitude: null,
-    originFarmLongitude: null,
-    productNotes: null,
-    productPrice: 0,
+    cowID: "0x0000000000000000000000000000000000000000",
+    originFarmName: "Future Farm",
+    originFarmInformation: "Milk farm of the new era",
+    originFarmLatitude: "42.12456",
+    originFarmLongitude: "12.87656",
+    productNotes: "Tasteful milk",
+    productPrice: 2.5,
+    bottlingFarmID: "0x0000000000000000000000000000000000000000",
+    transporterID: "0x0000000000000000000000000000000000000000",
     distributorID: "0x0000000000000000000000000000000000000000",
-    retailerID: "0x0000000000000000000000000000000000000000",
     consumerID: "0x0000000000000000000000000000000000000000",
 
     init: async function () {
@@ -22,6 +24,7 @@ App = {
         /// Setup access to blockchain
         return await App.initWeb3();
     },
+
 
     readForm: function () {
         App.sku = $("#sku").val();
@@ -58,6 +61,7 @@ App = {
     initWeb3: async function () {
         /// Find or Inject Web3 Provider
         /// Modern dapp browsers...
+debugger
         if (window.ethereum) {
             App.web3Provider = window.ethereum;
             try {
@@ -74,7 +78,7 @@ App = {
         }
         // If no injected web3 instance is detected, fall back to Ganache
         else {
-            App.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
+            App.web3Provider = new Web3.providers.HttpProvider('https://rinkeby.infura.io/v3/396d0708e95844fd8c87d9c6df4a0a8a');
         }
 
         App.getMetaskAccountID();
@@ -107,6 +111,10 @@ App = {
             var SupplyChainArtifact = data;
             App.contracts.SupplyChain = TruffleContract(SupplyChainArtifact);
             App.contracts.SupplyChain.setProvider(App.web3Provider);
+            // Grab the contract at specified deployed address with the interface defined by the ABI
+      var starNotary = StarNotary.at(
+        "0x7facce1e2b89b7d8018258f55c30a8f79877417b"
+      );            
             
             App.fetchItemBufferOne();
             App.fetchItemBufferTwo();
