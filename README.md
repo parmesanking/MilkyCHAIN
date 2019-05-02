@@ -68,8 +68,9 @@ Consumer: accounts[5]  0xc82e3d5b4c84664e5e506fde45ae1ab6be427513
 
 ```
 - To deploy the contract, with ganache-cli still running, issue the command ```truffle deploy```.
-- Install Metamask plugin for chrome or firefox and connect it to ganache blochchain
-- When your web app interacts with your wallet, Metamask will ask for confirmation. **Please note that all the smart contract methods are invoked by the current wallet selected in Metamask**
+- Install Metamask plugin for chrome or firefox and connect it to ganache blockchain
+- When your web app interacts with your wallet, Metamask will ask for confirmation. 
+**Please note that all the smart contract methods are invoked by the current wallet selected in Metamask**
 
 ## UI 
 You can interact with the smart contract by running the user interface (ganache-cli shoul always be running)
