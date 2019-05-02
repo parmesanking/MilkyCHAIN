@@ -451,12 +451,7 @@ contract("SupplyChain", function(accounts) {
     let bottlingFarmBalanceP = web3.eth.getBalance(bottlingFarmID);
     let distributorBalanceP = web3.eth.getBalance(distributorID);
     let consumerBalanceP = web3.eth.getBalance(consumerID);
-/*    console.log("FarmerBalance before:", farmerBalance.toNumber());
-    console.log("TransporterBalance before:", transporterBalance.toNumber());
-    console.log("BottlingFarmBalance before:", bottlingFarmBalance.toNumber());
-    console.log("DistributorBalance before:", distributorBalance.toNumber());
-    console.log("ConsumerBalance before:", consumerBalance.toNumber());
-*/
+
     // Mark an item as Processed by calling function processtItem()
     await supplyChain.buy(upc, {
       from: consumerID,

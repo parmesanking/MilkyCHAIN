@@ -8,15 +8,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "pk <pkrasam@gmail.com> (https://ipfs.infura.io/ipfs/QmSXiR9Khm3yo1J67nUopvVBxFJ8YGN2fUGZ34Etr3m92x/)",
+  "author": "Luca Agostini <parmesanking@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "lite-server": "2.4.0",
-    "truffle": "^5.0.14",
+    "truffle": "4",
     "truffle-hdwallet-provider": "^1.0.8",
-    "truffle-privatekey-provider": "^1.1.0"
+    "truffle-privatekey-provider": "^1.1.0",
+    "ganache-cli": "^6.4.3"
   },
   "dependencies": {
-    "ganache-cli": "^6.4.3"
   }
 }

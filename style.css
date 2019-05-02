@@ -20,11 +20,17 @@ input {
     margin: 10px 0;
 }
 
+select {
+  width: 80%;
+  
+  padding: 12px 20px;
+  margin: 10px 0;
+}
 button {
     cursor: pointer;
     background-color: #4CAF50;
     border: none;
-    color: white;
+    color: #FFFFFF;
     background-color: #00BCD4;
     font-size: 16px;
     padding: 16px 32px;
@@ -63,4 +69,20 @@ button {
 
 .horizontal-rule {
   background-color:#BDBDBD;
+}
+
+.transporter{
+  background-color:#bde592
+}
+.farmer{
+  background-color:#7fe5b9
+}
+.bottlingfarm{
+  background-color:#FFBA50
+}
+.distributor{
+  background-color:#ff9535
+}
+.consumer{
+  background-color:	#fc6060
 }
